@@ -1,129 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Pulchowk Main Page</title>
-<style>
-    .sub{
-        margin-top: 50px;
-        margin-bottom: 50px;
-        border: 2px solid black;
-        /* height: 25px; */
-    }
+    <title>Project Pulchowk - Freelance Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #5cb85c;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
 
-    .btns{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-</style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .job-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .job-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .job-actions .btn {
+            flex-grow: 1;
+            margin: 0 5px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .job-actions {
+                flex-direction: column;
+            }
+
+            .job-actions .btn {
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Project Pulchowk</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-laptop-code"></i> Project Pulchowk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-briefcase"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-users"></i> Freelancers</a>
+                    </li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <button class="btn btn-outline-success" type="submit">User Icon</button>
-            </form>
-          </div>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
+            </div>
         </div>
-      </nav>
-      <div class="container main">
-        <!-- aru sab container yesko muni -->
-        <div class="container sub">
-            <h2>THIS IS THE FIRST BID</h2>
-            <button class="btn btn-outline-warning">UserID</button>
-            <h6 style="display: inline;">Meyan Adhikari</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit, sint ex vitae itaque vero voluptatibus! Quod voluptas facere velit quidem blanditiis aperiam praesentium repudiandae at aut. Rem neque modi facilis commodi earum optio minima, fugiat, fuga consequuntur totam reprehenderit hic laudantium aperiam eaque. Cupiditate, nam voluptatibus? Quo officiis, id consequatur eius accusamus eaque nemo!</p>
-                <div class="btns">
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                </div>
-         </div>
+    </nav>
 
-         <div class="container sub">
-            <h2>THIS IS THE FIRST BID</h2>
-            <button class="btn btn-outline-warning">UserID</button>
-            <h6 style="display: inline;">Meyan Adhikari</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit, sint ex vitae itaque vero voluptatibus! Quod voluptas facere velit quidem blanditiis aperiam praesentium repudiandae at aut. Rem neque modi facilis commodi earum optio minima, fugiat, fuga consequuntur totam reprehenderit hic laudantium aperiam eaque. Cupiditate, nam voluptatibus? Quo officiis, id consequatur eius accusamus eaque nemo!</p>
-                <div class="btns">
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Available Projects</h1>
+            </div>
+            
+            <!-- Job Card Template -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="user-profile">
+                            <div class="user-profile-icon">MA</div>
+                            <h6 class="mb-0">Meyan Adhikari</h6>
+                        </div>
+                        <span class="badge bg-primary">New</span>
+                    </div>
+                    
+                    <h4 class="job-title">Web Development Project</h4>
+                    <p class="text-muted">
+                        Seeking a skilled web developer to create a responsive and modern website with clean, efficient code and intuitive user interface.
+                    </p>
+                    
+                    <div class="job-actions">
+                        <button class="btn btn-outline-primary"><i class="fas fa-eye"></i> View Details</button>
+                        <button class="btn btn-success"><i class="fas fa-paper-plane"></i> Apply</button>
+                    </div>
                 </div>
-         </div>
+            </div>
 
-         <div class="container sub">
-            <h2>THIS IS THE FIRST BID</h2>
-            <button class="btn btn-outline-warning">UserID</button>
-            <h6 style="display: inline;">Meyan Adhikari</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit, sint ex vitae itaque vero voluptatibus! Quod voluptas facere velit quidem blanditiis aperiam praesentium repudiandae at aut. Rem neque modi facilis commodi earum optio minima, fugiat, fuga consequuntur totam reprehenderit hic laudantium aperiam eaque. Cupiditate, nam voluptatibus? Quo officiis, id consequatur eius accusamus eaque nemo!</p>
-                <div class="btns">
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
+            <!-- Repeat job card for multiple projects -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="user-profile">
+                            <div class="user-profile-icon">JD</div>
+                            <h6 class="mb-0">John Doe</h6>
+                        </div>
+                        <span class="badge bg-warning">Urgent</span>
+                    </div>
+                    
+                    <h4 class="job-title">Mobile App Design</h4>
+                    <p class="text-muted">
+                        Looking for a creative UI/UX designer to design a mobile application interface for a startup project.
+                    </p>
+                    
+                    <div class="job-actions">
+                        <button class="btn btn-outline-primary"><i class="fas fa-eye"></i> View Details</button>
+                        <button class="btn btn-success"><i class="fas fa-paper-plane"></i> Apply</button>
+                    </div>
                 </div>
-         </div>
+            </div>
 
-         <div class="container sub">
-            <h2>THIS IS THE FIRST BID</h2>
-            <button class="btn btn-outline-warning">UserID</button>
-            <h6 style="display: inline;">Meyan Adhikari</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit, sint ex vitae itaque vero voluptatibus! Quod voluptas facere velit quidem blanditiis aperiam praesentium repudiandae at aut. Rem neque modi facilis commodi earum optio minima, fugiat, fuga consequuntur totam reprehenderit hic laudantium aperiam eaque. Cupiditate, nam voluptatibus? Quo officiis, id consequatur eius accusamus eaque nemo!</p>
-                <div class="btns">
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="user-profile">
+                            <div class="user-profile-icon">SA</div>
+                            <h6 class="mb-0">Sarah Anderson</h6>
+                        </div>
+                        <span class="badge bg-secondary">Open</span>
+                    </div>
+                    
+                    <h4 class="job-title">Logo and Branding Design</h4>
+                    <p class="text-muted">
+                        Need a professional graphic designer to create a unique logo and develop a comprehensive branding guideline.
+                    </p>
+                    
+                    <div class="job-actions">
+                        <button class="btn btn-outline-primary"><i class="fas fa-eye"></i> View Details</button>
+                        <button class="btn btn-success"><i class="fas fa-paper-plane"></i> Apply</button>
+                    </div>
                 </div>
-         </div>
+            </div>
+        </div>
+    </div>
 
-         <div class="container sub">
-            <h2>THIS IS THE FIRST BID</h2>
-            <button class="btn btn-outline-warning">UserID</button>
-            <h6 style="display: inline;">Meyan Adhikari</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit, sint ex vitae itaque vero voluptatibus! Quod voluptas facere velit quidem blanditiis aperiam praesentium repudiandae at aut. Rem neque modi facilis commodi earum optio minima, fugiat, fuga consequuntur totam reprehenderit hic laudantium aperiam eaque. Cupiditate, nam voluptatibus? Quo officiis, id consequatur eius accusamus eaque nemo!</p>
-                <div class="btns">
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                    <button class="btn btn-outline-success">HELLO</button>
-                </div>
-         </div>
-      </div>
+    <footer class="bg-light py-3 mt-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Project Pulchowk. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
